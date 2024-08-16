@@ -8,6 +8,11 @@ const characterSlice = createSlice({
         loading: false,
         error: false
     },
+    reducers: {
+      clearList(state) {
+        state.data = []
+      }
+    },
     extraReducers: (builder) => 
         builder
           .addCase(getCharacters.pending, state => {
@@ -38,4 +43,5 @@ const characterSlice = createSlice({
           })
 })
 
+export const { clearList } = characterSlice.actions;
 export const characterReducer = characterSlice.reducer;

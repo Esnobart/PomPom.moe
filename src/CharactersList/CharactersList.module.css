@@ -1,5 +1,37 @@
 .CharactersListContainer {
     margin: 0;
     padding: 0;
-    width: 33.33%;
+}
+
+.CharacterOpenContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    stroke: #240090;
+}
+
+.open {
+    transform: rotate(-90deg);
+}
+
+.CharactersTitle {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.CharactersList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.characterLi {
+    width: 250px;
+    height: 270px;
 }
