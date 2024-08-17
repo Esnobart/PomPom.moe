@@ -1,9 +1,9 @@
-.charactersListContainer {
+.conesListContainer {
     margin: 0;
     padding: 0;
 }
 
-.characterOpenContainer {
+.conesOpenContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,19 +19,19 @@
     transform: rotate(-90deg);
 }
 
-.charactersTitle {
+.conesTitle {
     text-align: center;
     flex-grow: 1;
 }
 
-.charactersList {
+.conesList {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
 }
 
-.charactersLi {
+.conesLi {
     width: 250px;
     height: 270px;
 }

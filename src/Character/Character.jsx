@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom"
 import css from './Character.module.css'
 
 export const Character = ({ data }) => {
-    console.log(data)
     return (
         <NavLink to={`/characters/:${data.id}`} className={css.characterContainer}>
             <div className={css.imageContainer}>

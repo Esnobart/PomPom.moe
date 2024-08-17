@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import svg from '../../icons.svg'
 import css from './CharactersList.module.css'
 import clsx from "clsx";
-import { clearList } from "../redux/characters/slice";
+import { clearCharactersList } from "../redux/characters/slice";
 
 export const CharactersList = () => {
     const [isOpen, setIsOpen] = useState(true)
@@ -24,7 +24,7 @@ export const CharactersList = () => {
             dispatch(getCharacters())
         } else {
             setIsOpen(false);
-            dispatch(clearList())
+            dispatch(clearCharactersList())
         }
     };
 
@@ -33,18 +33,18 @@ export const CharactersList = () => {
     }, [])
 
     return (
-        <div className={css.CharactersListContainer}>
-            <div className={css.CharacterOpenContainer}>
+        <div className={css.charactersListContainer}>
+            <div className={css.characterOpenContainer}>
                 <svg width="50px" height="50px" onClick={toggleOpen} className={clsx(css.icon, { [css.open]: !isOpen })}>
                     <use href={`${svg}#icon-arrow`}></use>
                 </svg>
-                <h1 className={css.CharactersTitle}>Characters</h1>
+                <h1 className={css.charactersTitle}>Characters</h1>
             </div>
             {loading && <Loading />}
             {error && <Error />}
-            <ul className={css.CharactersList}>
+            <ul className={css.charactersList}>
                 {data.map(character => (
-                    <li key={character.id} className={css.characterLi}><Character data={character} /></li>
+                    <li key={character.id} className={css.charactersLi}><Character data={character} /></li>
                 ))}
             </ul>
         </div>

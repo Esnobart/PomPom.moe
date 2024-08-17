@@ -1,47 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getCharacter, getCharacters } from "./operations"
+import { getCones, getCone } from "./operations";
 
-const characterSlice = createSlice({
-    name: "characters",
+const conesSlice = createSlice({
+    name: "cones",
     initialState: {
         data: [],
         loading: false,
         error: false
     },
     reducers: {
-      clearCharactersList(state) {
+        clearConesList(state) {
         state.data = []
       }
     },
     extraReducers: (builder) => 
         builder
-          .addCase(getCharacters.pending, state => {
+          .addCase(getCones.pending, state => {
             state.error = false;
             state.loading = true;
           })
-          .addCase(getCharacters.fulfilled, (state, action) => {
+          .addCase(getCones.fulfilled, (state, action) => {
             state.error = false;
             state.loading = false;
             state.data = action.payload;
           })
-          .addCase(getCharacters.rejected, state => {
+          .addCase(getCones.rejected, state => {
             state.error = true;
             state.loading = false;
           })
-          .addCase(getCharacter.pending, state => {
+          .addCase(getCone.pending, state => {
             state.error = false;
             state.loading = true;
           })
-          .addCase(getCharacter.fulfilled, (state, action) => {
+          .addCase(getCone.fulfilled, (state, action) => {
             state.error = false;
             state.loading = false;
             state.data = action.payload;
           })
-          .addCase(getCharacter.rejected, state => {
+          .addCase(getCone.rejected, state => {
             state.error = true;
             state.loading = false;
           })
 })
 
-export const { clearCharactersList } = characterSlice.actions;
-export const characterReducer = characterSlice.reducer;
+export const { clearConesList } = conesSlice.actions;
+export const conesReducer = conesSlice.reducer;
