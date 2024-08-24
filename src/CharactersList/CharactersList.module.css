@@ -7,12 +7,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 10px;
+    border-bottom: 1px #240090 solid;
 }
 
 .icon {
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
     stroke: #240090;
+    padding-right: 10px;
+    border-right: 1px #240090 solid;
 }
 
 .open {
@@ -33,5 +37,5 @@
 
 .charactersLi {
     width: 250px;
-    height: 270px;
+    height: 100%;
 }

@@ -1,0 +1,36 @@
+.guidesModal {
+    width: 200px;
+    height: 72px; 
+    overflow-y: auto;
+    position: fixed;
+    top: 105px;
+    left: 410px;
+    transform: translate(-50%, -50%);
+    background-color: #282828;
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 999;
+    scrollbar-width: none;
+    outline: none;
+}
+
+.guidesOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.guidesList {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 8px
+}
+
+.guidesList li {
+    cursor: pointer;
+}
