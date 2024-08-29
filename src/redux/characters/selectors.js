@@ -1,4 +1,6 @@
-export const charactersData = state => state.characters.data;
+export const charactersAll = state => state.characters.characters;
+
+export const charactersOne = state => state.characters.character;
 
 export const charactersLoading = state => state.characters.loading;
 

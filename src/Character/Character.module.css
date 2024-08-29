@@ -112,8 +112,20 @@
 }
 
 .characterName {
-    margin: 10px 0px 10px 0px;
+    margin: 10px 0px 5px 0px;
     width: 100%;
     text-align: center;
+    color: #ffffff;
+}
+
+.characterInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.characterInfo p {
     color: #ffffff;
 }

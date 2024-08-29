@@ -1,32 +1,9 @@
-.dataBaseModal {
-    width: 200px;
-    height: 100px; 
-    overflow-y: auto;
-    position: fixed;
-    top: 120px;
-    left: 300px;
-    transform: translate(-50%, -50%);
-    background-color: #282828;
-    padding: 10px;
-    border-radius: 20px;
-    z-index: 999;
-    scrollbar-width: none;
-    outline: none;
-}
 
-.dataBaseOverlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99;
-}
 
 .dataBaseList {
     display: flex;
     text-align: center;
     flex-direction: column;
-    gap: 8px
+    gap: 8px;
+    cursor: auto;
 }

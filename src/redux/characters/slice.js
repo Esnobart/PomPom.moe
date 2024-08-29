@@ -4,14 +4,10 @@ import { getCharacter, getCharacters } from "./operations"
 const characterSlice = createSlice({
     name: "characters",
     initialState: {
-        data: [],
+        characters: [],
+        character: null,
         loading: false,
         error: false
-    },
-    reducers: {
-      clearCharactersList(state) {
-        state.data = []
-      }
     },
     extraReducers: (builder) => 
         builder
@@ -22,7 +18,7 @@ const characterSlice = createSlice({
           .addCase(getCharacters.fulfilled, (state, action) => {
             state.error = false;
             state.loading = false;
-            state.data = action.payload;
+            state.characters = action.payload;
           })
           .addCase(getCharacters.rejected, state => {
             state.error = true;
@@ -35,7 +31,7 @@ const characterSlice = createSlice({
           .addCase(getCharacter.fulfilled, (state, action) => {
             state.error = false;
             state.loading = false;
-            state.data = action.payload;
+            state.character = action.payload;
           })
           .addCase(getCharacter.rejected, state => {
             state.error = true;
@@ -43,5 +39,4 @@ const characterSlice = createSlice({
           })
 })
 
-export const { clearCharactersList } = characterSlice.actions;
 export const characterReducer = characterSlice.reducer;
