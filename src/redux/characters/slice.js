@@ -9,6 +9,11 @@ const characterSlice = createSlice({
         loading: false,
         error: false
     },
+    reducers: {
+      setCharacter(state) {
+        state.character = null
+      }
+    },
     extraReducers: (builder) => 
         builder
           .addCase(getCharacters.pending, state => {
@@ -39,4 +44,5 @@ const characterSlice = createSlice({
           })
 })
 
+export const { setCharacter } = characterSlice.actions;
 export const characterReducer = characterSlice.reducer;

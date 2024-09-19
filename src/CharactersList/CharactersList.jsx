@@ -6,6 +6,7 @@ import { Character } from "../Character/Character";
 import { getCharacters } from "../redux/characters/operations";
 import { useEffect } from "react";
 import css from './CharactersList.module.css'
+import { setCharacter } from "../redux/characters/slice";
 
 export default function CharactersList() {
     const data = useSelector(charactersAll);
@@ -15,7 +16,8 @@ export default function CharactersList() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCharacters())
+        dispatch(getCharacters());
+        dispatch(setCharacter());
     }, [])
 
     return (

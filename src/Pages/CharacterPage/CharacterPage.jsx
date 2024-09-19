@@ -19,37 +19,86 @@ export default function CharacterPage() {
         dispatch(getCharacter(id));
     }, []);
 
-    if (loading) {
-        return <Loading />;
-    }
+    const getRelicsClass = (lengthRelics, lengthPlanars) => {
+        if (lengthRelics % 2 === 0 && lengthPlanars % 2 === 0) {
+            return css.evenRelicsEvenPlanars;
+        }
+        if (lengthRelics % 2 === 0 && lengthPlanars % 2 !== 0) {
+            return css.evenRelicsOddPlanars;
+        }
+        if (lengthRelics % 2 !== 0 && lengthPlanars % 2 === 0) {
+            return css.oddRelicsEvenPlanars;
+        }
+        return css.oddRelicsOddPlanars;
+    };
 
-    if (error) {
-        return <Error />;
-    }
+    const getPlanarsClass = (lengthRelics, lengthPlanars) => {
+        if (lengthRelics % 2 === 0 && lengthPlanars % 2 === 0) {
+            return css.evenPlanarsEvenRelics;
+        }
+        if (lengthRelics % 2 === 0 && lengthPlanars % 2 !== 0) {
+            return css.evenPlanarsOddRelics;
+        }
+        if (lengthRelics % 2 !== 0 && lengthPlanars % 2 === 0) {
+            return css.oddPlanarsEvenRelics;
+        }
+        return css.oddPlanarsOddRelics;
+    };
 
-    if (!data) {
-        return <p>No data available</p>;
-    }
+    const statsIcons = {
+        body: "/img/body.png",
+        sphere: "/img/sphere.png",
+        boots: "/img/boots.png",
+        rope: "/img/rope.png",
+      };
 
-    return (
+    return (    
+        <>
+        {loading && <Loading />}
+        {error && <Error />}
+        {data && (<>
         <section className={css.characterMainSection}>
-            <ul className={css.conesList}>
-                {data.cones.map(cone => (
-                    <li key={cone.id}>
-                        <p>{cone.name}</p>
-                        <img width="80" height="80" src={cone.img[1]} alt={cone.name} />
-                    </li>
-                ))}
-            </ul>
-            <img src={data.img[0]} width="800" height="800" alt={data.name} />
-            <ul className={css.relicsList}>
-                {data.relics.map(relic => (
-                    <li key={relic.id}>
-                        <img width="80" height="80" src={relic.img} alt={relic.name} />
-                        <p>{relic.name}</p>
-                    </li>
-                ))}
-            </ul>
+                <ul className={css.conesList}>
+                    {data.cones.map(cone => (
+                        <li key={cone.id}>
+                            <p>{cone.name}</p>
+                            <img className={css.coneImage} src={cone.img[1]} alt={cone.name} />
+                        </li>
+                    ))}
+                </ul>
+                <img src={data.img[0]} width="800" height="800" alt={data.name} />
+                <div className={css.statsContainer}>
+                    <ul className={css.statsList}>
+                        {Object.keys(data.stats).map((key, index) => (
+                            <li key={key} className={index < 2 ? css.firstTwoStats : css.lastTwoStats}>
+                                <img src={statsIcons[key]} alt={key} />
+                                <p>{data.stats[key]}</p>
+                            </li>
+                        ))}
+                    </ul>
+                    <span>Доп. статы: {data.addStats}</span>
+                </div>
+                <ul className={`${css.relicsList} ${getRelicsClass(data.relics.length, data.planars.length)}`}>
+                    {data.relics.map(relic => (
+                        <li key={relic.id}>
+                            <img className={css.relicImage} src={relic.img} alt={relic.name} />
+                            <p>{relic.name}</p>
+                        </li>
+                    ))}
+                </ul>
+                <ul className={`${css.planarsList} ${getPlanarsClass(data.relics.length, data.planars.length)}`}>
+                    {data.planars.map(planar => (
+                        <li key={planar.id}>
+                            <img className={css.planarImage} src={planar.img} alt={planar.name} />
+                            <p>{planar.name}</p>
+                        </li>
+                    ))}
+                </ul>
         </section>
+        <section>
+            <p>{data.additionally}</p>
+        </section>
+    </>)}
+        </>
     );
 }

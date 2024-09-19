@@ -5,9 +5,13 @@ ul {
 body, ul, li, p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-    background-color: #282828;
+    background: none;
     font-family: urw-din, sans-serif;
     color: #ffffff;
+}
+
+body {
+    background-color: #282828;
 }
 
 a {

@@ -1,0 +1,38 @@
+.conesList {
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.conesList li {
+    display: flex;
+    width: calc((100% - 2 * 16px) / 3);
+    align-items: center;
+}
+
+.conesInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.conesStats {
+    display: flex;
+    gap: 6px;
+}
+
+.forWho {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.navigationImage {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}

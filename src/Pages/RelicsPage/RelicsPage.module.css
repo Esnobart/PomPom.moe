@@ -1,0 +1,42 @@
+.relicsCardsList {
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 16px;
+    column-gap: 24px;
+}
+
+.relicsCardsList li {
+    width: calc((100% - 24px) / 2);
+    display: flex;
+    align-items: center;
+}
+
+.relicImage {
+    width: 250px;
+    height: 250px;
+}
+
+.relicName {
+    margin-bottom: 10px;
+}
+
+.characteristicsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.forWho {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.navigationImage {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
