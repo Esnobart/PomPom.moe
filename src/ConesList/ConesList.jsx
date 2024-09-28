@@ -1,52 +1,37 @@
-import { useDispatch, useSelector } from "react-redux"
-import { conesData, conesError, conesLoading } from "../redux/cones/selectors"
-import { Loading } from "../Loading/Loading";
-import { Error } from "../Error/Error";
-import { Character } from "../Character/Character";
-import { getCones } from "../redux/cones/operations";
-import { useEffect, useState } from "react";
-import svg from '../../icons.svg'
-import css from './ConesList.module.css'
-import clsx from "clsx";
-import { clearConesList } from "../redux/cones/slice";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-export const ConeList = () => {
-    const [isOpen, setIsOpen] = useState(true)
-    const data = useSelector(conesData);
-    const error = useSelector(conesError);
-    const loading = useSelector(conesLoading);
-    
-    const dispatch = useDispatch();
+import { filteredCones } from "../redux/cones/selectors";
+import css from "./ConesList.module.css"
 
-    const toggleOpen = () => {
-        if (!isOpen) {
-            setIsOpen(true);
-            dispatch(getCones())
-        } else {
-            setIsOpen(false);
-            dispatch(clearConesList())
-        }
-    };
-
-    useEffect(() => {
-        dispatch(getCones())
-    }, [])
+export const ConesList = () => {
+    const data = useSelector(filteredCones);
 
     return (
-        <div className={css.conesListContainer}>
-            <div className={css.conesOpenContainer}>
-                <svg width="50px" height="50px" onClick={toggleOpen} className={clsx(css.icon, { [css.open]: !isOpen })}>
-                    <use href={`${svg}#icon-arrow`}></use>
-                </svg>
-                <h1 className={css.conesTitle}>Cones</h1>
-            </div>
-            {loading && <Loading />}
-            {error && <Error />}
+        <section>
             <ul className={css.conesList}>
                 {data.map(cone => (
-                    <li key={cone.id} className={css.conesLi}><Character data={cone} /></li>
+                    <li key={cone.id}>
+                        <img src={cone.img[0]} alt={cone.name} width="261" height="306" />
+                        <div className={css.conesInfo}>
+                            <p>{cone.name}</p>
+                            <ul className={css.conesStats}>
+                                <li>HP: {cone.HP}</li>
+                                <li>ATK: {cone.ATK}</li>
+                                <li>DEF: {cone.DEF}</li>
+                            </ul>
+                            <div className={css.forWho}>
+                            <p className={css.forWhoText}>Подходит для:</p>
+                                {cone.chars.map(char => (
+                                    <NavLink to={`/characters/${char.id}`} key={char.id}>
+                                        <img src={char.img[2]} alt={char.name} className={css.navigationImage}></img>
+                                    </NavLink>
+                                ))}
+                            </div>
+                        </div>
+                    </li>
                 ))}
             </ul>
-        </div>
+        </section>
     )
 }

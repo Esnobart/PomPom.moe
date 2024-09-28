@@ -13,14 +13,8 @@
     left: 0;
     height: 0px;
     width: 2px;
-    background: #fcd772;
     transition: all 0.5s ease;
     z-index: 3;
-}
-
-.characterContainer:hover .vector1 {
-    top: 0;
-    height: 100%;
 }
 
 .vector2 {
@@ -29,11 +23,11 @@
     right: 0;
     height: 0px;
     width: 2px;
-    background: #fcd772;
     transition: all 0.5s ease;
     z-index: 3;
 }
 
+.characterContainer:hover .vector1,
 .characterContainer:hover .vector2 {
     top: 0;
     height: 100%;
@@ -45,14 +39,8 @@
     left: 50%;
     height: 2px;
     width: 0px;
-    background: #fcd772;
     transition: all 0.5s ease;
     z-index: 3;
-}
-
-.characterContainer:hover .vector3 {
-    left: 0;
-    width: 100%;
 }
 
 .vector4 {
@@ -61,14 +49,22 @@
     left: 50%;
     height: 2px;
     width: 0px;
-    background: #fcd772;
     transition: all 0.5s ease;
     z-index: 3;
 }
 
+.characterContainer:hover .vector3,
 .characterContainer:hover .vector4 {
     left: 0;
     width: 100%;
+}
+
+.rarity-4 {
+    background: #af86fe;
+}
+
+.rarity-5 {
+    background: #ffcf70;
 }
 
 .imageContainer {

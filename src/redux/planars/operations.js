@@ -3,11 +3,11 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://pompom-moe-back.onrender.com/api";
 
-export const getRelics = createAsyncThunk(
-    "relics/getAll",
+export const getPlanars = createAsyncThunk(
+    "cones/getAll",
     async (_, thunkAPI) => {
         try {
-            const response = await axios.get('/relics');
+            const response = await axios.get('/planars');
             return response.data
         } catch (err) {
             return thunkAPI.rejectWithValue(err.message);
@@ -15,11 +15,11 @@ export const getRelics = createAsyncThunk(
     }
 )
 
-export const getRelic = createAsyncThunk(
-    "relics/getOne",
+export const getPlanar = createAsyncThunk(
+    "cones/getOne",
     async (id, thunkAPI) => {
         try {
-            const response = await axios.get(`/relics/${id}`);
+            const response = await axios.get(`/planars/${id}`);
             return response.data
         } catch (err) {
             return thunkAPI.rejectWithValue(err.message);

@@ -1,30 +1,33 @@
-.conesList {
+.planarsCardsList {
     margin: 0 10px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 16px;
+    row-gap: 16px;
+    column-gap: 24px;
 }
 
-.conesList li {
+.planarsCardsList li {
+    width: calc((100% - 24px) / 2);
     display: flex;
-    width: calc((100% - 2 * 16px) / 3);
     align-items: center;
 }
 
-.conesInfo {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
+.planarImage {
+    width: 250px;
+    height: 250px;
 }
 
-.conesStats {
-    display: flex;
-    gap: 6px;
+.planarImage {
+    margin-bottom: 10px;
+}
+
+.planarName {
+    margin-bottom: 10px;
 }
 
 .forWho {
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

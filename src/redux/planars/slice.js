@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getRelics, getRelic } from "./operations";
+import { getPlanars, getPlanar } from "./operations";
 
-const relicsSlice = createSlice({
-    name: "relics",
+const planarsSlice = createSlice({
+    name: "planars",
     initialState: {
         data: [],
         loading: false,
@@ -10,33 +10,33 @@ const relicsSlice = createSlice({
     },
     extraReducers: (builder) => 
         builder
-          .addCase(getRelics.pending, state => {
+          .addCase(getPlanars.pending, state => {
             state.error = false;
             state.loading = true;
           })
-          .addCase(getRelics.fulfilled, (state, action) => {
+          .addCase(getPlanars.fulfilled, (state, action) => {
             state.error = false;
             state.loading = false;
             state.data = action.payload;
           })
-          .addCase(getRelics.rejected, state => {
+          .addCase(getPlanars.rejected, state => {
             state.error = true;
             state.loading = false;
           })
-          .addCase(getRelic.pending, state => {
+          .addCase(getPlanar.pending, state => {
             state.error = false;
             state.loading = true;
           })
-          .addCase(getRelic.fulfilled, (state, action) => {
+          .addCase(getPlanar.fulfilled, (state, action) => {
             state.error = false;
             state.loading = false;
             state.data = action.payload;
           })
-          .addCase(getRelic.rejected, state => {
+          .addCase(getPlanar.rejected, state => {
             state.error = true;
             state.loading = false;
           })
 })
 
-export const { clearRelicsList } = relicsSlice.actions;
-export const relicsReducer = relicsSlice.reducer;
+export const { clearRelicsList } = planarsSlice.actions;
+export const planarsReducer = planarsSlice.reducer;

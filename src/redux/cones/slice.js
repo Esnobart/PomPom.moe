@@ -1,16 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { getCones, getCone } from "./operations";
 
+const updateFilter = (state, action, filterType) => {
+  const index = state.filter[filterType].indexOf(action.payload);
+  if (index === -1) {
+    state.filter[filterType].push(action.payload);
+  } else {
+    state.filter[filterType] = state.filter[filterType].filter(item => item !== action.payload);
+  }
+};
+
 const conesSlice = createSlice({
     name: "cones",
     initialState: {
         data: [],
+        filter: {
+          rarity: [],
+          path: []
+        },
         loading: false,
         error: false
     },
     reducers: {
-        clearConesList(state) {
-        state.data = []
+      setFilter(state, action) {
+        const { filterType, value } = action.payload;
+        updateFilter(state, { payload: value }, filterType);
+      },
+      clearFilter(state) {
+        state.filter = {
+          rarity: [],
+          path: []
+        }
       }
     },
     extraReducers: (builder) => 
@@ -43,5 +63,5 @@ const conesSlice = createSlice({
           })
 })
 
-export const { clearConesList } = conesSlice.actions;
+export const { setFilter, clearFilter } = conesSlice.actions;
 export const conesReducer = conesSlice.reducer;

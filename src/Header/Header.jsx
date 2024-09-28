@@ -20,6 +20,10 @@ export const Header = () => {
                         <div className={css.firstLi}>
                             <p className={css.navigationListText}>База данных</p>
                             <div className={css.dataBase}>
+                                <div className={css.wrapper}>
+                                    <div className={css.vector}></div>
+                                    <div className={css.vectorInner}></div>
+                                </div>
                                 <DataBase />
                             </div>
                         </div>
@@ -28,6 +32,10 @@ export const Header = () => {
                         <div className={css.secondLi}>
                             <p>Гайды на...</p>
                             <div className={css.guidesModal}>
+                                <div className={css.wrapper}>
+                                    <div className={css.vector}></div>
+                                    <div className={css.vectorInner}></div>
+                                </div>
                                 <GuidesModal />
                             </div>
                         </div>

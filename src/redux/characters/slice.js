@@ -1,17 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { getCharacter, getCharacters } from "./operations"
 
+const updateFilter = (state, action, filterType) => {
+  const index = state.filter[filterType].indexOf(action.payload);
+  if (index === -1) {
+    state.filter[filterType].push(action.payload);
+  } else {
+    state.filter[filterType] = state.filter[filterType].filter(item => item !== action.payload);
+  }
+};
+
 const characterSlice = createSlice({
     name: "characters",
     initialState: {
         characters: [],
         character: null,
+        filter: {
+          rarity: [],
+          path: [],
+          type: []
+        },
         loading: false,
         error: false
     },
     reducers: {
       setCharacter(state) {
         state.character = null
+      },
+      setFilter(state, action) {
+        const { filterType, value } = action.payload;
+        updateFilter(state, { payload: value }, filterType);
+      },
+      clearFilter(state) {
+        state.filter = {
+          rarity: [],
+          path: [],
+          type: []
+        }
       }
     },
     extraReducers: (builder) => 
@@ -44,5 +69,5 @@ const characterSlice = createSlice({
           })
 })
 
-export const { setCharacter } = characterSlice.actions;
+export const { setCharacter, setFilter, clearFilter } = characterSlice.actions;
 export const characterReducer = characterSlice.reducer;

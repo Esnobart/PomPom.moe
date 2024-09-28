@@ -37,13 +37,11 @@
 .dataBase {
     display: none;
     pointer-events: auto;
-    width: 200px;
-    height: 100px;
+    width: fit-content;
+    height: fit-content;
     overflow-y: auto;
     position: absolute;
     top: 18px;
-    background-color: #282828;
-    padding: 10px;
     border-radius: 20px;
     z-index: 999;
     scrollbar-width: none;
@@ -67,13 +65,11 @@
 
 .guidesModal {
     display: none;
-    width: 200px;
-    height: 72px; 
+    width: fit-content;
+    height: fit-content; 
     overflow-y: auto;
     position: absolute;
     top: 18px;
-    background-color: #282828;
-    padding: 10px;
     border-radius: 20px;
     z-index: 999;
     scrollbar-width: none;
@@ -83,6 +79,36 @@
 
 .secondLi:hover .guidesModal {
     display: block;
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+}
+
+.vector {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid black;
+}
+
+.vectorInner {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2px; 
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid #282828; 
 }
 
 .headerProfile {

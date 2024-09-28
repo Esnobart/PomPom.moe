@@ -1,9 +1,13 @@
-
-
 .dataBaseList {
     display: flex;
     text-align: center;
     flex-direction: column;
+    width: 200px;
+    background-color: #282828;
+    margin-top: 19px;
+    padding: 5px;
     gap: 8px;
     cursor: auto;
+    border: 2px black solid;
+    border-radius: 20px;
 }
