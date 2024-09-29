@@ -4,8 +4,12 @@ import css from "./Header.module.css"
 import { DataBase } from "../DataBase/DataBase";
 import { GuidesModal } from "../GuidesModal/GuidesModal";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 export const Header = () => {
+    const [firstModal, setFirstModal] = useState(false);
+    const [secondModal, setSecondModal] = useState(false);
+
     return (
         <header className={css.headerContainer}>
             <nav className={css.navigationContainer}>
@@ -14,12 +18,16 @@ export const Header = () => {
                         <h1>PomPom.moe</h1>
                         <p>V1</p>
                     </NavLink>
+                    <div className={css.headerProfileForPhone}>
+                        <p onClick={() => Notiflix.Notify.info("В разработке до V2")} className={css.headerUserWelcomeText}>С возвращением, Esna</p>
+                        <img src={"/img/Character_Aventurine_Icon.png"} className={css.headerProfileIcon} onClick={() => Notiflix.Notify.info("В разработке до V2")}></img>
+                    </div>
                 </div>
                 <ul className={css.navigationList}>
-                    <li tabIndex="0">
-                        <div className={css.firstLi}>
+                    <li>
+                        <div className={css.firstLi} onClick={() => setFirstModal(!firstModal)}>
                             <p className={css.navigationListText}>База данных</p>
-                            <div className={css.dataBase}>
+                            <div className={css.dataBase} style={{ display: firstModal ? 'block' : undefined }}>
                                 <div className={css.wrapper}>
                                     <div className={css.vector}></div>
                                     <div className={css.vectorInner}></div>
@@ -29,9 +37,9 @@ export const Header = () => {
                         </div>
                     </li>
                     <li>
-                        <div className={css.secondLi}>
-                            <p>Гайды на...</p>
-                            <div className={css.guidesModal}>
+                        <div className={css.secondLi} onClick={() => setSecondModal(!secondModal)}>
+                            <p className={css.navigationListText}>Гайды на...</p>
+                            <div className={css.guidesModal} style={{ display: secondModal ? 'block' : undefined }}>
                                 <div className={css.wrapper}>
                                     <div className={css.vector}></div>
                                     <div className={css.vectorInner}></div>
@@ -40,13 +48,13 @@ export const Header = () => {
                             </div>
                         </div>
                     </li>
-                    <li onClick={() => Notiflix.Notify.info("Идеи мне в дискорд @esnobart")}>Продолжение следует</li>
+                    <li className={css.navigationListText} onClick={() => Notiflix.Notify.info("Идеи мне в дискорд @esnobart")}>Продолжение следует</li>
                 </ul>
+                <div className={css.headerProfileForDesctop}>
+                    <p onClick={() => Notiflix.Notify.info("В разработке до V2")} className={css.headerUserWelcomeText}>С возвращением, Esna</p>
+                    <img src={"/img/Character_Aventurine_Icon.png"} className={css.headerProfileIcon} onClick={() => Notiflix.Notify.info("В разработке до V2")}></img>
+                </div>
            </nav>
-           <div className={css.headerProfile}>
-                <p onClick={() => Notiflix.Notify.info("В разработке до V2")} className={css.headerUserWelcomeText}>С возвращением, Esna</p>
-                <img src={"/img/Character_Aventurine_Icon.png"} className={css.headerProfileIcon} onClick={() => Notiflix.Notify.info("В разработке до V2")}></img>
-           </div>
         </header>
     )
 }

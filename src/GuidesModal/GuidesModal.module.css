@@ -13,5 +13,11 @@
 }
 
 .guidesList li {
+    color: #bbbec7;
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.guidesList li:hover {
+    color: #ffffff;
 }

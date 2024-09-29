@@ -9,10 +9,29 @@
 
 .imageContainer {
     display: flex;
-    width: 250px;
-    height: 250px;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
+.backgroundImage {
+    z-index: 1;
+    opacity: 0;
+}
+
+.imageContainer:hover .backgroundImage {
+    opacity: 1;
+}
+
+.rarity-4 {
+    border-bottom: 2px #af86fe solid;
+}
+
+.rarity-5 {
+    border-bottom: 2px #ffcf70 solid;
 }
 
 .coneImage {

@@ -79,6 +79,33 @@
     transition: all 0.5s ease;
 }
 
+.newContainer,
+.rerunContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    border-radius: 20px;
+    z-index: 4;
+}
+
+.newContainer {
+    border: 2px #ffcb6b solid;
+    background: radial-gradient(circle, #faee7d 0%, #9d6836 100%);
+}
+
+.newContainer p {
+    color: #fef493;
+}
+
+.rerunContainer {
+    border: 2px #19fe0f solid;
+}
+
+.rerunContainer p {
+    color: #7ffa4a;
+}
+
 .imageContainer:hover {
     border-radius: 0;
 }

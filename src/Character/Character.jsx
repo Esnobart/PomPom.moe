@@ -10,6 +10,16 @@ export const Character = ({ data }) => {
             <div className={`${css.vector3} ${css[rarityClass]}`}></div>
             <div className={`${css.vector4} ${css[rarityClass]}`}></div>
             <div className={css.imageContainer}>
+                {data.isNewCharacter && (
+                    <div className={css.newContainer}>
+                        <p>New!</p>
+                    </div>
+                )}
+                {data.rerun && (
+                    <div className={css.rerunContainer}>
+                        <p>Rerun!</p>
+                    </div>
+                )}
                 <img src={`/img/Background_Item_${data.rarity}_Star.png`} className={css.backgroundImage} />                
                 <img src={data.img[1]} alt={`${data.name}'s icon`} className={css.characterImage}/>
             </div>

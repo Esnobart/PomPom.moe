@@ -8,14 +8,56 @@
 
 .conesList li {
     display: flex;
-    width: calc((100% - 2 * 16px) / 3);
+    width: 100%;
     align-items: center;
+    gap: 5px;
+}
+
+.imageContainer {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 174px;
+    height: 204px;
+    box-sizing: border-box;
+}
+
+.coneImage, .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 174px;
+    height: 204px;
+}
+
+.backgroundImage {
+    transition: all 0.5s ease;
+    z-index: 1;
+    opacity: 0;
+}
+
+.coneImage {
+    z-index: 2;
+}
+
+.imageContainer:hover .backgroundImage {
+    opacity: 1;
+}
+
+.rarity4 {
+    border-bottom: 2px #af86fe solid;
+}
+
+.rarity5 {
+    border-bottom: 2px #ffcf70 solid;
 }
 
 .conesInfo {
+    width: calc(100% - 179px);
     display: flex;
     flex-direction: column;
-    width: 100%;
     gap: 10px;
 }
 
@@ -26,13 +68,57 @@
 
 .forWho {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     gap: 8px;
 }
 
+.forWhoIcons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.forWhoIcons a {
+    width: calc((100% - 3 * 5px) / 4);
+    aspect-ratio: 1 / 1;
+}
+
 .navigationImage {
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+    .conesList li {
+        width: calc((100% - 16px) / 2);
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .conesList li {
+        width: calc((100% - 2 * 16px) / 3);
+    }
+    .conesInfo {
+        width: calc(100% - 266px);
+    }
+    .coneImage {
+        width: 261px;
+        height: 306px;
+    }
+    .imageContainer {
+        width: 261px;
+        height: 306px;
+    }
+    .backgroundImage {
+        width: 261px;
+        height: 306px;
+    }
 }

@@ -11,3 +11,12 @@
     border: 2px black solid;
     border-radius: 20px;
 }
+
+.dataBaseList li a {
+    color: #bbbec7;
+    transition: all 0.5s ease;
+}
+
+.dataBaseList li:hover a {
+    color: #ffffff;
+}

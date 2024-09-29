@@ -1,14 +1,14 @@
 .characterMainSection {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
+    gap: 20px;
 }
 
 .conesList {
     display: flex;
-    position: absolute;
-    right: 70%;
     flex-direction: column;
     gap: 16px;
 }
@@ -28,11 +28,20 @@
     border-radius: 50%;
 }
 
-.statsContainer {
+.mainImage {
+    display: none;
+}
+
+.statsContainerForDesctop,
+.statsContainerForPhone {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+
+.statsContainerForDesctop {
+    display: none;
     position: absolute;
     bottom: 0;
 }
@@ -78,9 +87,6 @@
 .relicsList {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: 70%;
-    transform: translateY(-50%);
     gap: 20px;
 }
 
@@ -101,9 +107,6 @@
 .planarsList {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: 75%;
-    transform: translateY(-50%);
     gap: 20px;
 }
 
@@ -121,22 +124,84 @@
     border-radius: 50%;
 }
 
-.evenRelicsEvenPlanars,
-.oddRelicsOddPlanars,
-.oddRelicsEvenPlanars {
-    top: 45%;
+@media only screen and (min-width: 768px) {
+    .mainImage {
+        display: inline;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 600px;
+        z-index: -1;
+    }
 }
 
-.evenRelicsOddPlanars {
-    top: 50%;
-}
+@media only screen and (min-width: 1024px) {
+    .characterMainSection {
+        flex-direction: row;
+        gap: 0;
+        height: fit-content;
+    }
 
-.oddPlanarsEvenRelics {
-    top: 45%;
-}
+    .conesList {
+        display: flex;
+        position: absolute;
+        right: 70%;
+        flex-direction: column;
+        gap: 16px;
+    }
 
-.evenPlanarsEvenRelics,
-.evenPlanarsOddRelics,
-.oddPlanarsOddRelics {
-    top: 50%;
+    .mainImage {
+        position: static;
+        transform: none;
+        width: 800px;
+        height: 800px;
+    }
+
+    .relicsList {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 70%;
+        transform: translateY(-50%);
+        gap: 20px;
+    }
+
+    .planarsList {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 75%;
+        transform: translateY(-50%);
+        gap: 20px;
+    }
+
+    .statsContainerForPhone {
+        display: none;
+    }
+
+    .statsContainerForDesctop {
+        display: block;
+    }
+
+    .evenRelicsEvenPlanars,
+    .oddRelicsOddPlanars,
+    .oddRelicsEvenPlanars {
+        top: 45%;
+    }
+
+    .evenRelicsOddPlanars {
+        top: 50%;
+    }
+
+    .oddPlanarsEvenRelics {
+        top: 45%;
+    }
+
+    .evenPlanarsEvenRelics,
+    .evenPlanarsOddRelics,
+    .oddPlanarsOddRelics {
+        top: 50%;
+    }
 }

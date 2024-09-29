@@ -8,14 +8,14 @@
 }
 
 .planarsCardsList li {
-    width: calc((100% - 24px) / 2);
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
 .planarImage {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
 }
 
 .planarImage {
@@ -38,4 +38,14 @@
     border-radius: 50%;
     width: 50px;
     height: 50px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .planarsCardsList li {
+        width: calc((100% - 24px) / 2);
+    }
+    .planarImage {
+        width: 250px;
+        height: 250px;
+    }
 }

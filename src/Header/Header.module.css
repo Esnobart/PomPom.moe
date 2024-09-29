@@ -1,19 +1,25 @@
 .headerContainer {
     display: flex;
-    height: 8vh;
-    justify-content: space-between;
-    padding: 0px 25px 0px 25px;
-    border-bottom: 1px #240090 solid;
+    height: 9%;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0 25px 0 25px;
     margin-bottom: 32px;
 }
 
 .navigationContainer {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
 }
 
 .headerLogo {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .NavToMain {
@@ -24,13 +30,16 @@
 
 .navigationList {
     display: flex;
-    gap: 20px;
-    margin: 0px 50px 0px 50px;
+    justify-content: center;
+    column-gap: 5%;
+    row-gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .navigationContainer li {
     cursor: pointer;
-    margin: auto;
     position: relative;
 }
 
@@ -54,13 +63,8 @@
     justify-content: center;
 }
 
-.firstLi:hover .dataBase,
-.firstLi:focus .dataBase {
+.firstLi:hover .dataBase {
     display: block;
-}
-
-.navigationListText {
-    margin: auto;
 }
 
 .guidesModal {
@@ -111,12 +115,18 @@
     border-bottom: 20px solid #282828; 
 }
 
-.headerProfile {
-    align-items: center;
+.headerProfileForPhone,
+.headerProfileForDesctop {
     display: flex;
+    align-items: center;
+}
+
+.headerProfileForDesctop {
+    display: none;
 }
 
 .headerUserWelcomeText {
+    display: none;
     margin-right: 10px;
     cursor: pointer;
 }
@@ -126,4 +136,39 @@
     height: 50px;
     border-radius: 50px;
     cursor: pointer;
+}
+
+.navigationListText {
+    color: #e4cb93;
+}
+
+@media only screen and (min-width: 768px) {
+    .navigationContainer {
+        flex-direction: row;
+    }
+    .navigationList {
+        flex-wrap: nowrap;
+        width: fit-content;
+        gap: 20px;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .firstLi {
+        width: fit-content;
+    }
+    .navigationListText {
+        white-space: nowrap;
+    }
+    .headerProfileForPhone {
+        display: none;
+    }
+    .headerProfileForDesctop {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .headerUserWelcomeText {
+        display: inline;
+    }
 }

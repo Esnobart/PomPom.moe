@@ -66,8 +66,8 @@ export default function CharacterPage() {
                         </li>
                     ))}
                 </ul>
-                <img src={data.img[0]} width="800" height="800" alt={data.name} />
-                <div className={css.statsContainer}>
+                <img src={data.img[0]} className={css.mainImage} alt={data.name} />
+                <div className={css.statsContainerForDesctop}>
                     <ul className={css.statsList}>
                         {Object.keys(data.stats).map((key, index) => (
                             <li key={key} className={index < 2 ? css.firstTwoStats : css.lastTwoStats}>
@@ -94,6 +94,17 @@ export default function CharacterPage() {
                         </li>
                     ))}
                 </ul>
+                <div className={css.statsContainerForPhone}>
+                    <ul className={css.statsList}>
+                        {Object.keys(data.stats).map((key, index) => (
+                            <li key={key} className={index < 2 ? css.firstTwoStats : css.lastTwoStats}>
+                                <img src={statsIcons[key]} alt={key} />
+                                <p>{data.stats[key]}</p>
+                            </li>
+                        ))}
+                    </ul>
+                    <span>Доп. статы: {data.addStats}</span>
+                </div>
         </section>
         <section>
             <p>{data.additionally}</p>
