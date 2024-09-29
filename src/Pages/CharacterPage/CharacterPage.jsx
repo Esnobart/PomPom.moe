@@ -46,10 +46,10 @@ export default function CharacterPage() {
     };
 
     const statsIcons = {
-        body: "/img/body.png",
-        sphere: "/img/sphere.png",
-        boots: "/img/boots.png",
-        rope: "/img/rope.png",
+        body: "../../../img/body.png",
+        sphere: "../../../img/sphere.png",
+        boots: "../../../img/boots.png",
+        rope: "../../../img/rope.png",
       };
 
     return (    
