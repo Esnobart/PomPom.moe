@@ -13,7 +13,7 @@ export const ConesList = () => {
                 {data.map(cone => (
                     <li key={cone.id}>
                         <div className={`${css.imageContainer} ${cone.rarity === "4" ? css.rarity4 : css.rarity5}`}>
-                            <img src={`../../img/Background_Item_${cone.rarity}_Star.png`} className={css.backgroundImage} />
+                            <img src={cone.rarity === "4" ? "https://i.imgur.com/F542Iuj.png" : "https://i.imgur.com/ShUUKno.png"} className={css.backgroundImage} />
                             <img src={cone.img[0]} alt={cone.name} className={css.coneImage} />
                         </div>
                         <div className={css.conesInfo}>

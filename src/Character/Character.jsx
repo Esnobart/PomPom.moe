@@ -20,7 +20,7 @@ export const Character = ({ data }) => {
                         <p>Rerun!</p>
                     </div>
                 )}
-                <img src={`../../img/Background_Item_${data.rarity}_Star.png`} className={css.backgroundImage} />                
+                <img src={data.rarity === 4 ? "https://i.imgur.com/F542Iuj.png" : "https://i.imgur.com/ShUUKno.png"} className={css.backgroundImage} />                
                 <img src={data.img[1]} alt={`${data.name}'s icon`} className={css.characterImage}/>
             </div>
             <p className={css.characterName}>{data.name}</p>

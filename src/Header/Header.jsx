@@ -20,7 +20,7 @@ export const Header = () => {
                     </NavLink>
                     <div className={css.headerProfileForPhone}>
                         <p onClick={() => Notiflix.Notify.info("В разработке до V2")} className={css.headerUserWelcomeText}>С возвращением, Esna</p>
-                        <img src={"../../img/Character_Aventurine_Icon.png"} className={css.headerProfileIcon} onClick={() => Notiflix.Notify.info("В разработке до V2")}></img>
+                        <img src={"https://i.imgur.com/TVL904n.png"} className={css.headerProfileIcon} onClick={() => Notiflix.Notify.info("В разработке до V2")}></img>
                     </div>
                 </div>
                 <ul className={css.navigationList}>
@@ -52,7 +52,7 @@ export const Header = () => {
                 </ul>
                 <div className={css.headerProfileForDesctop}>
                     <p onClick={() => Notiflix.Notify.info("В разработке до V2")} className={css.headerUserWelcomeText}>С возвращением, Esna</p>
-                    <img src={"../../img/Character_Aventurine_Icon.png"} className={css.headerProfileIcon} onClick={() => Notiflix.Notify.info("В разработке до V2")}></img>
+                    <img src={"https://i.imgur.com/TVL904n.png"} className={css.headerProfileIcon} onClick={() => Notiflix.Notify.info("В разработке до V2")}></img>
                 </div>
            </nav>
         </header>

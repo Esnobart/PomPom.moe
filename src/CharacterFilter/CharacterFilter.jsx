@@ -5,28 +5,28 @@ import { useSelector } from "react-redux";
 import { charactersFilter } from "../redux/characters/selectors";
 
 const types = [
-    { key: "Разрушение", icon: "../../img/destruction-icon.png", alt: "destruction icon" },
-    { key: "Охота", icon: "../../img/hunt-icon.png", alt: "hunt icon" },
-    { key: "Эрудиция", icon: "../../img/erudition-icon.png", alt: "erudition icon" },
-    { key: "Гармония", icon: "../../img/harmony-icon.png", alt: "harmony icon" },
-    { key: "Небытие", icon: "../../img/nihility-icon.png", alt: "nihility icon" },
-    { key: "Сохранение", icon: "../../img/preservation-icon.png", alt: "preservation icon" },
-    { key: "Изобилие", icon: "../../img/abundance-icon.png", alt: "abundance icon" }
+    { key: "Разрушение", icon: "https://i.imgur.com/lsLOnXn.png", alt: "destruction icon" },
+    { key: "Охота", icon: "https://i.imgur.com/Ezi3stQ.png", alt: "hunt icon" },
+    { key: "Эрудиция", icon: "https://i.imgur.com/51Ub72v.png", alt: "erudition icon" },
+    { key: "Гармония", icon: "https://i.imgur.com/iJwwPUe.png", alt: "harmony icon" },
+    { key: "Небытие", icon: "https://i.imgur.com/CYzTTcu.png", alt: "nihility icon" },
+    { key: "Сохранение", icon: "https://i.imgur.com/wILtHNa.png", alt: "preservation icon" },
+    { key: "Изобилие", icon: "https://i.imgur.com/MzZztSp.png", alt: "abundance icon" }
 ];
 
 const typesOfFight = [
-    { key: "Физический", icon: "../../img/physical-type.png", alt: "physical type" },
-    { key: "Огненный", icon: "../../img/fire-type.png", alt: "fire type" },
-    { key: "Ледяной", icon: "../../img/ice-type.png", alt: "ice type" },
-    { key: "Электрический", icon: "../../img/lightning-type.png", alt: "lightning type" },
-    { key: "Ветряной", icon: "../../img/wind-type.png", alt: "wind type" },
-    { key: "Квантовый", icon: "../../img/quantum-type.png", alt: "quantum type" },
-    { key: "Мнимый", icon: "../../img/imaginary-type.png", alt: "imaginary type" }
+    { key: "Физический", icon: "https://i.imgur.com/zC4rfPQ.png", alt: "physical type" },
+    { key: "Огненный", icon: "https://i.imgur.com/M3FqQW3.png", alt: "fire type" },
+    { key: "Ледяной", icon: "https://i.imgur.com/BlZcLr0.png", alt: "ice type" },
+    { key: "Электрический", icon: "https://i.imgur.com/ra74vjS.png", alt: "lightning type" },
+    { key: "Ветряной", icon: "https://i.imgur.com/jlojtuW.png", alt: "wind type" },
+    { key: "Квантовый", icon: "https://i.imgur.com/ZQcsE3Y.png", alt: "quantum type" },
+    { key: "Мнимый", icon: "https://i.imgur.com/zYhsZ3q.png", alt: "imaginary type" }
 ];
 
 const rarity = [
-    { key: "5", icon: "../../img/icon_5_Stars.png", alt: "5 stars icon" },
-    { key: "4", icon: "../../img/icon_4_Stars.png", alt: "4 stars icon" }
+    { key: "5", icon: "https://i.imgur.com/6dfcP79.png", alt: "5 stars icon" },
+    { key: "4", icon: "https://i.imgur.com/oq2yGeI.png", alt: "4 stars icon" }
 ]
 
 export const CharacterFilter = () => {
