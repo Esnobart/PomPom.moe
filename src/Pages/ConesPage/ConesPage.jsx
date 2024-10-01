@@ -9,8 +9,10 @@ import { getCones } from "../../redux/cones/operations";
 import { setCharacter } from "../../redux/characters/slice";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
+import { useLocation } from "react-router-dom";
 
 export default function CharactersPage() {
+    const location = useLocation();
     const data = useSelector(conesData);
     const loading = useSelector(conesLoading);
     const error = useSelector(conesError);
@@ -29,7 +31,7 @@ export default function CharactersPage() {
             {data && (
                 <>
                     <ConesFilter />
-                    <ConesList />
+                    <ConesList location={location} />
                 </>
             )}
         </>

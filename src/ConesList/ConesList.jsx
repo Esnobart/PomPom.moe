@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { filteredCones } from "../redux/cones/selectors";
 import css from "./ConesList.module.css"
 
-export const ConesList = () => {
+export const ConesList = ({location}) => {
     const data = useSelector(filteredCones);
 
     return (
@@ -27,7 +27,7 @@ export const ConesList = () => {
                                 <p className={css.forWhoText}>Подходит для:</p>
                                 <div className={css.forWhoIcons}>
                                     {cone.chars.map(char => (
-                                        <NavLink to={`/characters/${char.id}`} key={char.id}>
+                                        <NavLink to={`/characters/${char.id}`} key={char.id} state={location}>
                                             <img src={char.img[2]} alt={char.name} className={css.navigationImage}></img>
                                         </NavLink>
                                     ))}

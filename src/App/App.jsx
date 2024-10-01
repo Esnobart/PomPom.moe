@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from '../Header/Header';
 
 const MainPage = lazy(() => import('../Pages/MainPage/MainPage'));
-const CharactersPage = lazy(() => import('../Pages/CharactersPage/CharacterPage'));
+const CharactersPage = lazy(() => import('../Pages/CharactersPage/CharactersPage'));
 const CharacterPage = lazy(() => import('../Pages/CharacterPage/CharacterPage'));
 const ConesPage = lazy(() => import('../Pages/ConesPage/ConesPage'));
 const RelicsPage = lazy(() => import('../Pages/RelicsPage/RelicsPage'));

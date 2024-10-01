@@ -1,13 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacter } from "../../redux/characters/operations";
 import { charactersOne, charactersError, charactersLoading } from "../../redux/characters/selectors";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
-import { useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import css from "./CharacterPage.module.css";
 
 export default function CharacterPage() {
+    const location = useLocation();
+    const goBack = useRef(location?.state ?? "/characters");
     const { id } = useParams();
     const data = useSelector(charactersOne);
     const error = useSelector(charactersError);
@@ -56,8 +58,13 @@ export default function CharacterPage() {
         <>
         {loading && <Loading />}
         {error && <Error />}
+        <NavLink to={goBack.current} className={css.goBackBtn}>&larr; <span>Back</span></NavLink>
         {data && (<>
         <section className={css.characterMainSection}>
+            <div className={css.phonesCharacterName}>
+                <p>{data.name}</p>
+                <img src={data.img[2]} />
+            </div>
                 <ul className={css.conesList}>
                     {data.cones.map(cone => (
                         <li key={cone.id}>
@@ -106,7 +113,7 @@ export default function CharacterPage() {
                     <span>Доп. статы: {data.addStats}</span>
                 </div>
         </section>
-        <section>
+        <section className={css.characterAddSection}>
             <p>{data.additionally}</p>
         </section>
     </>)}

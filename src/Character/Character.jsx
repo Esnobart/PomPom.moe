@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom"
 import css from './Character.module.css'
 
-export const Character = ({ data }) => {
+export const Character = ({ location, data }) => {
     const rarityClass = `rarity-${data.rarity}`;
     return (
-        <NavLink to={`/characters/${data.id}`} className={css.characterContainer}>
+        <NavLink to={`/characters/${data.id}`} state={location} className={css.characterContainer}>
             <div className={`${css.vector1} ${css[rarityClass]}`}></div>
             <div className={`${css.vector2} ${css[rarityClass]}`}></div>
             <div className={`${css.vector3} ${css[rarityClass]}`}></div>

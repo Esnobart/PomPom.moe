@@ -9,8 +9,10 @@ import { setCharacter } from "../../redux/characters/slice";
 import { getCharacters } from "../../redux/characters/operations";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
+import { useLocation } from "react-router-dom";
 
 export default function CharactersPage() {
+    const location = useLocation();
     const data = useSelector(charactersAll);
     const loading = useSelector(charactersLoading);
     const error = useSelector(charactersError);
@@ -29,7 +31,7 @@ export default function CharactersPage() {
             {data && (
                 <>
                     <CharacterFilter />
-                    <CharactersList />
+                    <CharactersList location={location} />
                 </>
             )}
         </>

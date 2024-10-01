@@ -5,10 +5,11 @@ import { getRelics } from "../../redux/relics/operations";
 import { setCharacter } from "../../redux/characters/slice";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import css from "./RelicsPage.module.css"
 
 export default function RelicsPage() {
+    const location = useLocation()
     const data = useSelector(relicsData);
     const loading = useSelector(relicsLoading);
     const error = useSelector(relicsError);
@@ -38,7 +39,7 @@ export default function RelicsPage() {
                                 <div className={css.forWho}>
                                     <p>Подходит для:</p>
                                     {relic.chars.map(char => (
-                                        <NavLink to={`/characters/${char.id}`} key={char.id}>
+                                        <NavLink to={`/characters/${char.id}`} key={char.id} state={location}>
                                             <img src={char.img[2]} alt={char.name} className={css.navigationImage}></img>
                                         </NavLink>
                                     ))}
