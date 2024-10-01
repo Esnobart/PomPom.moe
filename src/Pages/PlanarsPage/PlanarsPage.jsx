@@ -1,11 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import { planarsData, planarsError, planarsLoading } from "../../redux/planars/selectors";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useLocation } from "react-router-dom";
+
+import { planarsData, planarsError, planarsLoading } from "../../redux/planars/selectors";
 import { getPlanars } from "../../redux/planars/operations";
 import { setCharacter } from "../../redux/characters/slice";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
-import { NavLink, useLocation } from "react-router-dom";
+import { clearModals } from "../../redux/modals/slice";
 import css from "./PlanarsPage.module.css"
 
 export default function RelicsPage() {
@@ -19,6 +21,7 @@ export default function RelicsPage() {
     useEffect(() => {
         dispatch(getPlanars());
         dispatch(setCharacter());
+        dispatch(clearModals());
     }, []);
 
     return (

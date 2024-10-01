@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 import { ConesFilter } from "../../ConesFilter/ConesFilter";
 import { ConesList } from "../../ConesList/ConesList";
@@ -9,7 +10,7 @@ import { getCones } from "../../redux/cones/operations";
 import { setCharacter } from "../../redux/characters/slice";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
-import { useLocation } from "react-router-dom";
+import { clearModals } from "../../redux/modals/slice";
 
 export default function CharactersPage() {
     const location = useLocation();
@@ -21,7 +22,8 @@ export default function CharactersPage() {
 
     useEffect(() => {
         dispatch(getCones());
-        dispatch(setCharacter())
+        dispatch(setCharacter());
+        dispatch(clearModals());
     }, []);
 
     return (

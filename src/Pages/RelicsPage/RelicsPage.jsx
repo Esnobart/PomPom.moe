@@ -1,11 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import { relicsData, relicsError, relicsLoading } from "../../redux/relics/selectors";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useLocation } from "react-router-dom";
+
+import { relicsData, relicsError, relicsLoading } from "../../redux/relics/selectors";
 import { getRelics } from "../../redux/relics/operations";
 import { setCharacter } from "../../redux/characters/slice";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
-import { NavLink, useLocation } from "react-router-dom";
+import { clearModals } from "../../redux/modals/slice";
 import css from "./RelicsPage.module.css"
 
 export default function RelicsPage() {
@@ -19,6 +21,7 @@ export default function RelicsPage() {
     useEffect(() => {
         dispatch(getRelics());
         dispatch(setCharacter());
+        dispatch(clearModals());
     }, []);
 
     return (

@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useLocation, useParams } from "react-router-dom";
+
 import { getCharacter } from "../../redux/characters/operations";
 import { charactersOne, charactersError, charactersLoading } from "../../redux/characters/selectors";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
-import { NavLink, useLocation, useParams } from "react-router-dom";
-import css from "./CharacterPage.module.css";
+import css from "./CharacterPage.module.css"
 
 export default function CharacterPage() {
     const location = useLocation();

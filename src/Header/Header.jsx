@@ -1,14 +1,17 @@
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Notiflix from "notiflix";
 
-import css from "./Header.module.css"
 import { DataBase } from "../DataBase/DataBase";
 import { GuidesModal } from "../GuidesModal/GuidesModal";
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { modalDataBase, modalGuides } from "../redux/modals/selectors";
+import css from "./Header.module.css"
+import { setDataBaseModal, setGuidesModal } from "../redux/modals/slice";
 
 export const Header = () => {
-    const [firstModal, setFirstModal] = useState(false);
-    const [secondModal, setSecondModal] = useState(false);
+    const dispatch = useDispatch()
+    const databaseModal = useSelector(modalDataBase);
+    const guidesModal = useSelector(modalGuides);
 
     return (
         <header className={css.headerContainer}>
@@ -25,9 +28,9 @@ export const Header = () => {
                 </div>
                 <ul className={css.navigationList}>
                     <li>
-                        <div className={css.firstLi} onClick={() => setFirstModal(!firstModal)}>
+                        <div className={css.firstLi} onClick={() => dispatch(setDataBaseModal())}>
                             <p className={css.navigationListText}>База данных</p>
-                            <div className={css.dataBase} style={{ display: firstModal ? 'block' : undefined }}>
+                            <div className={css.dataBase} style={{ display: databaseModal ? 'block' : undefined }}>
                                 <div className={css.wrapper}>
                                     <div className={css.vector}></div>
                                     <div className={css.vectorInner}></div>
@@ -37,9 +40,9 @@ export const Header = () => {
                         </div>
                     </li>
                     <li>
-                        <div className={css.secondLi} onClick={() => setSecondModal(!secondModal)}>
+                        <div className={css.secondLi} onClick={() => dispatch(setGuidesModal())}>
                             <p className={css.navigationListText}>Гайды на...</p>
-                            <div className={css.guidesModal} style={{ display: secondModal ? 'block' : undefined }}>
+                            <div className={css.guidesModal} style={{ display: guidesModal ? 'block' : undefined }}>
                                 <div className={css.wrapper}>
                                     <div className={css.vector}></div>
                                     <div className={css.vectorInner}></div>

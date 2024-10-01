@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 import { CharacterFilter } from "../../CharacterFilter/CharacterFilter";
 import { CharactersList } from "../../CharactersList/CharactersList";
@@ -9,7 +10,7 @@ import { setCharacter } from "../../redux/characters/slice";
 import { getCharacters } from "../../redux/characters/operations";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
-import { useLocation } from "react-router-dom";
+import { clearModals } from "../../redux/modals/slice";
 
 export default function CharactersPage() {
     const location = useLocation();
@@ -22,6 +23,7 @@ export default function CharactersPage() {
     useEffect(() => {
         dispatch(getCharacters());
         dispatch(setCharacter());
+        dispatch(clearModals());
     }, []);
 
     return (
