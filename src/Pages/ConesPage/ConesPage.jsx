@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 import { ConesFilter } from "../../ConesFilter/ConesFilter";
 import { ConesList } from "../../ConesList/ConesList";
@@ -28,6 +29,10 @@ export default function CharactersPage() {
 
     return (
         <>
+            <Helmet>
+                <title>Конусы</title>
+                <link rel='icon' href='https://i.imgur.com/gEu9C46.png'/>
+            </Helmet>
             {loading && <Loading />}
             {error && <Error />}
             {data && (

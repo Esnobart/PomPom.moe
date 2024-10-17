@@ -11,6 +11,7 @@ import { getCharacters } from "../../redux/characters/operations";
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
 import { clearModals } from "../../redux/modals/slice";
+import { Helmet } from "react-helmet-async";
 
 export default function CharactersPage() {
     const location = useLocation();
@@ -28,6 +29,10 @@ export default function CharactersPage() {
 
     return (
         <>
+            <Helmet>
+                <title>Персонажи</title>
+                <link rel='icon' href='https://i.imgur.com/gEu9C46.png'/>
+            </Helmet>
             {loading && <Loading />}
             {error && <Error />}
             {data && (

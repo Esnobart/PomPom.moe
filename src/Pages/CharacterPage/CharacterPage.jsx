@@ -7,6 +7,7 @@ import { charactersOne, charactersError, charactersLoading } from "../../redux/c
 import { Loading } from "../../Loading/Loading";
 import { Error } from "../../Error/Error";
 import css from "./CharacterPage.module.css"
+import { Helmet } from "react-helmet-async";
 
 export default function CharacterPage() {
     const location = useLocation();
@@ -57,15 +58,19 @@ export default function CharacterPage() {
 
     return (    
         <>
-        {loading && <Loading />}
-        {error && <Error />}
-        <NavLink to={goBack.current} className={css.goBackBtn}>&larr; <span>Back</span></NavLink>
-        {data && (<>
-        <section className={css.characterMainSection}>
-            <div className={css.phonesCharacterName}>
-                <p>{data.name}</p>
-                <img src={data.img[2]} />
-            </div>
+            <Helmet>
+                <title>{data.name}</title>
+                <link rel='icon' href='https://i.imgur.com/gEu9C46.png'/>
+            </Helmet>
+            {loading && <Loading />}
+            {error && <Error />}
+            <NavLink to={goBack.current} className={css.goBackBtn}>&larr; <span>Back</span></NavLink>
+            {data && (<>
+            <section className={css.characterMainSection}>
+                <div className={css.phonesCharacterName}>
+                    <p>{data.name}</p>
+                    <img src={data.img[2]} />
+                </div>
                 <ul className={css.conesList}>
                     {data.cones.map(cone => (
                         <li key={cone.id}>
@@ -113,11 +118,11 @@ export default function CharacterPage() {
                     </ul>
                     <span>Доп. статы: {data.addStats}</span>
                 </div>
-        </section>
-        <section className={css.characterAddSection}>
-            <p>{data.additionally}</p>
-        </section>
-    </>)}
-        </>
+            </section>
+            <section className={css.characterAddSection}>
+                <p>{data.additionally}</p>
+            </section>
+        </>)}
+    </>
     );
 }
