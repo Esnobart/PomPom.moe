@@ -4,8 +4,8 @@ import { NavLink, useLocation, useParams } from "react-router-dom";
 
 import { getCharacter } from "../../redux/characters/operations";
 import { charactersOne, charactersError, charactersLoading } from "../../redux/characters/selectors";
-import { Loading } from "../../Loading/Loading";
-import { Error } from "../../Error/Error";
+import { Loading } from "../../Components/Loading/Loading";
+import { Error } from "../../Components/Error/Error";
 import css from "./CharacterPage.module.css"
 
 export default function CharacterPage() {

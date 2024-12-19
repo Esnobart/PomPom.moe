@@ -5,8 +5,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import { relicsData, relicsError, relicsLoading } from "../../redux/relics/selectors";
 import { getRelics } from "../../redux/relics/operations";
 import { setCharacter } from "../../redux/characters/slice";
-import { Loading } from "../../Loading/Loading";
-import { Error } from "../../Error/Error";
+import { Loading } from "../../Components/Loading/Loading";
+import { Error } from "../../Components/Error/Error";
 import { clearModals } from "../../redux/modals/slice";
 import css from "./RelicsPage.module.css"
 

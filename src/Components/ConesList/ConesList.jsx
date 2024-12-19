@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-import { filteredCones } from "../redux/cones/selectors";
+import { filteredCones } from "../../redux/cones/selectors";
 import css from "./ConesList.module.css"
 
 export const ConesList = ({location}) => {

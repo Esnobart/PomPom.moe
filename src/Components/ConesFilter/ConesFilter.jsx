@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-import { conesFilter } from "../redux/cones/selectors";
-import { setFilter } from "../redux/cones/slice";
+import { conesFilter } from "../../redux/cones/selectors";
+import { setFilter } from "../../redux/cones/slice";
 import css from "./ConesFilter.module.css"
 
 const types = [

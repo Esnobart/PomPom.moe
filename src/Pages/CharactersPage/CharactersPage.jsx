@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { CharacterFilter } from "../../CharacterFilter/CharacterFilter";
-import { CharactersList } from "../../CharactersList/CharactersList";
+import { CharacterFilter } from "../../Components/CharacterFilter/CharacterFilter";
+import { CharactersList } from "../../Components/CharactersList/CharactersList";
 import { charactersAll, charactersError, charactersLoading } from "../../redux/characters/selectors";
 import { setCharacter } from "../../redux/characters/slice";
 import { getCharacters } from "../../redux/characters/operations";
-import { Loading } from "../../Loading/Loading";
-import { Error } from "../../Error/Error";
+import { Loading } from "../../Components/Loading/Loading";
+import { Error } from "../../Components/Error/Error";
 import { clearModals } from "../../redux/modals/slice";
 
 export default function CharactersPage() {
