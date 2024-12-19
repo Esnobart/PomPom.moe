@@ -1,0 +1,70 @@
+.goBackBtn {
+    margin-left: 10px;
+    color: gray;
+    cursor: pointer;
+}
+
+.signUpForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px
+}
+
+.signUpMainText {
+    width: 500px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.signUpSpan {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.signUpLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: small;
+}
+
+.signUpField {
+    padding: 6px 8px;
+    background: none;
+    border: 1px white solid;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.signUpField:hover {
+    background: #3c3c3c;
+}
+
+.signUpField:focus {
+    background: #454545;
+}
+
+.signUpSubBtn {
+    width: 80px;
+    background: none;
+    padding: 8px 12px;
+    margin-top: 8px;
+    color: white;
+    border: 1px white solid;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.signUpSubBtn:hover {
+    background: white;
+    color: #282828;
+}
+
+.signUpSubBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

@@ -1,6 +1,7 @@
 .headerContainer {
     display: flex;
-    height: 9%;
+    height: 50px;
+    align-items: center;
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
@@ -118,6 +119,7 @@
 .headerProfileForPhone,
 .headerProfileForDesctop {
     display: flex;
+    gap: 10px;
     align-items: center;
 }
 
@@ -127,7 +129,6 @@
 
 .headerUserWelcomeText {
     display: none;
-    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -136,6 +137,23 @@
     height: 50px;
     border-radius: 50px;
     cursor: pointer;
+}
+
+.signupBtn {
+    background: none;
+    padding: 8px 12px 8px 12px;
+    color: white;
+    border: 1px white solid;
+    border-radius: 10px;
+}
+
+.loginBtn {
+    background: white;
+    padding: 8px 12px 8px 12px;
+    border: none;
+    color: #282828;
+    border: 1px white solid;
+    border-radius: 10px;
 }
 
 .navigationListText {

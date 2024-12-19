@@ -1,0 +1,65 @@
+.goBackBtn {
+    margin-left: 10px;
+    color: gray;
+    cursor: pointer;
+}
+
+.logInForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px
+}
+
+.logInMainText {
+    width: 500px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.logInLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: small;
+}
+
+.logInField {
+    padding: 6px 8px;
+    background: none;
+    border: 1px white solid;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.logInField:hover {
+    background: #3c3c3c;
+}
+
+.logInField:focus {
+    background: #454545;
+}
+
+.logInSubBtn {
+    width: 80px;
+    background: white;
+    padding: 8px 12px;
+    margin-top: 8px;
+    color: #282828;
+    border: 1px white solid;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.logInSubBtn:hover {
+    background: #282828;
+    color: white;
+}
+
+.logInSubBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

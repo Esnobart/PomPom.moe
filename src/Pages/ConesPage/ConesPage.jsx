@@ -4,13 +4,13 @@ import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-import { ConesFilter } from "../../ConesFilter/ConesFilter";
-import { ConesList } from "../../ConesList/ConesList";
+import { ConesFilter } from "../../Components/ConesFilter/ConesFilter";
+import { ConesList } from "../../Components/ConesList/ConesList";
 import { conesData, conesLoading, conesError } from "../../redux/cones/selectors";
 import { getCones } from "../../redux/cones/operations";
 import { setCharacter } from "../../redux/characters/slice";
-import { Loading } from "../../Loading/Loading";
-import { Error } from "../../Error/Error";
+import { Loading } from "../../Components/Loading/Loading";
+import { Error } from "../../Components/Error/Error";
 import { clearModals } from "../../redux/modals/slice";
 
 export default function CharactersPage() {

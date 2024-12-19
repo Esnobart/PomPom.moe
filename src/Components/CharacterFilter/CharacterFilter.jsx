@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux"
 import css from "./CharacterFilter.module.css"
-import { setFilter } from "../redux/characters/slice";
+import { setFilter } from "../../redux/characters/slice";
 import { useSelector } from "react-redux";
-import { charactersFilter } from "../redux/characters/selectors";
+import { charactersFilter } from "../../redux/characters/selectors";
 
 const types = [
     { key: "Разрушение", icon: "https://i.imgur.com/lsLOnXn.png", alt: "destruction icon" },
