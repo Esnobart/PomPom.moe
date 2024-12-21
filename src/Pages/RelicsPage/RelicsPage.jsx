@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 import { relicsData, relicsError, relicsLoading } from "../../redux/relics/selectors";
 import { getRelics } from "../../redux/relics/operations";
@@ -26,6 +27,10 @@ export default function RelicsPage() {
 
     return (
         <section>
+            <Helmet>
+                <title>Реликвии</title>
+                <link rel='icon' href='https://i.imgur.com/gEu9C46.png'/>
+            </Helmet>
             {loading && <Loading />}
             {error && <Error />}
             {data && (
