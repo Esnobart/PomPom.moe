@@ -49,7 +49,7 @@ export default function CharacterPage() {
     };
 
     const statsIcons = {
-        body: "https://i.imgur.com/QY9ZJbR.png",
+        body: "https://i.imgur.com/yZgvOYv.png",
         sphere: "https://i.imgur.com/Z06ahIH.png",
         boots: "https://i.imgur.com/3NNG9Sk.png",
         rope: "https://i.imgur.com/cFwVwVu.png",
