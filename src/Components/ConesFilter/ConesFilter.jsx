@@ -6,13 +6,13 @@ import { setFilter } from "../../redux/cones/slice";
 import css from "./ConesFilter.module.css"
 
 const types = [
-    { key: "Разрушение", icon: "https://i.imgur.com/lsLOnXn.png", alt: "destruction icon" },
-    { key: "Охота", icon: "https://i.imgur.com/Ezi3stQ.png", alt: "hunt icon" },
-    { key: "Эрудиция", icon: "https://i.imgur.com/51Ub72v.png", alt: "erudition icon" },
-    { key: "Гармония", icon: "https://i.imgur.com/iJwwPUe.png", alt: "harmony icon" },
-    { key: "Небытие", icon: "https://i.imgur.com/CYzTTcu.png", alt: "nihility icon" },
-    { key: "Сохранение", icon: "https://i.imgur.com/wILtHNa.png", alt: "preservation icon" },
-    { key: "Изобилие", icon: "https://i.imgur.com/MzZztSp.png", alt: "abundance icon" }
+    { key: "Разрушение", icon: "https://i.imgur.com/2feXFtR.png", alt: "destruction icon" },
+    { key: "Охота", icon: "https://i.imgur.com/Emwka1e.png", alt: "hunt icon" },
+    { key: "Эрудиция", icon: "https://i.imgur.com/kLishcF.png", alt: "erudition icon" },
+    { key: "Гармония", icon: "https://i.imgur.com/OjpVlkA.png", alt: "harmony icon" },
+    { key: "Небытие", icon: "https://i.imgur.com/gdnfXhQ.png", alt: "nihility icon" },
+    { key: "Сохранение", icon: "https://i.imgur.com/zKhz5Bn.png", alt: "preservation icon" },
+    { key: "Изобилие", icon: "https://i.imgur.com/lw9aahv.png", alt: "abundance icon" }
 ];
 
 const rarity = [

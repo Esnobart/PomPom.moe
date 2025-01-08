@@ -4,7 +4,7 @@
     gap: 50px;
     justify-content: center;
     width: fit-content;
-    background-color: gray;
+    background: none;
     border: 1px silver solid;
     margin: 0 auto;
     margin-bottom: 16px;
@@ -53,7 +53,7 @@
 }
 
 .selected {
-    border: 2px black solid; 
+    border: 1px white solid; 
     border-radius: 5px;
 }
 
