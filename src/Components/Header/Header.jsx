@@ -6,15 +6,16 @@ import { DataBase } from "../DataBase/DataBase";
 import { GuidesModal } from "../GuidesModal/GuidesModal";
 import { modalDataBase, modalGuides } from "../../redux/modals/selectors";
 import { setDataBaseModal, setGuidesModal } from "../../redux/modals/slice";
-// import { userData, isUserLogged } from "../../redux/user/selectors";
+import { userData, isUserLogged, userLoading } from "../../redux/user/selectors";
 import css from "./Header.module.css"
 
 export const Header = () => {
     const dispatch = useDispatch()
     const databaseModal = useSelector(modalDataBase);
     const guidesModal = useSelector(modalGuides);
-    // const isLogged = useSelector(isUserLogged);
-    // const user = useSelector(userData);
+    const isLogged = useSelector(isUserLogged);
+    const user = useSelector(userData);
+    const loading = useSelector(userLoading);
 
     return (
         <header className={css.headerContainer}>
@@ -24,7 +25,7 @@ export const Header = () => {
                         <h1>PomPom.moe</h1>
                         <p>V1</p>
                     </NavLink>
-                    {/* {isLogged ? (
+                    {!loading && (isLogged ? (
                     <div className={css.headerProfileForPhone}>
                         <p className={css.headerUserWelcomeText}>С возвращением, {user.nickname}</p>
                         <img src={user.avatar} className={css.headerProfileIcon}></img>
@@ -33,7 +34,7 @@ export const Header = () => {
                             <NavLink to="/signup"><button type="button" className={css.signupBtn}>Sign Up</button></NavLink>
                             <NavLink to="/login"><button type="button" className={css.loginBtn}>Log In</button></NavLink>
                         </div>
-                    )} */}
+                    ))}
                 </div>
                 <ul className={css.navigationList}>
                     <li>
@@ -62,7 +63,7 @@ export const Header = () => {
                     </li>
                     <li className={css.navigationListText} onClick={() => Notiflix.Notify.info("Идеи мне в дискорд @esnobart")}>Продолжение следует</li>
                 </ul>
-                {/* {isLogged ? (
+                {!loading && (isLogged ? (
                     <div className={css.headerProfileForDesctop}>
                         <p className={css.headerUserWelcomeText}>С возвращением, {user.nickname}</p>
                         <img src={user.avatar} className={css.headerProfileIcon}></img>
@@ -71,7 +72,7 @@ export const Header = () => {
                             <NavLink to="/signup"><button type="button" className={css.signupBtn}>Sign Up</button></NavLink>
                             <NavLink to="/login"><button type="button" className={css.loginBtn}>Log In</button></NavLink>
                         </div>
-                    )} */}
+                    ))}
            </nav>
         </header>
     )

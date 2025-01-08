@@ -10,6 +10,7 @@ const usersSlice = createSlice({
             password: null,
             avatar: null
         },
+        userLoading: false,
         token: null,
         isLogged: false,
         isRefreshing: false
@@ -21,10 +22,14 @@ const usersSlice = createSlice({
             state.token = action.payload.token;
             state.isLogged = true;
           })
+          .addCase(logIn.pending, state => {
+            state.userLoading = true;
+          })
           .addCase(logIn.fulfilled, (state, action) => {
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isLogged = true;
+            state.userLoading = false;
           })
           .addCase(logOut.fulfilled, state => {
             state.user = { nickname: null, email: null, password: null, avatar: null};
