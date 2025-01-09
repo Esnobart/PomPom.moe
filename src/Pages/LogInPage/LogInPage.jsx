@@ -31,7 +31,7 @@ export default function SignUpPage() {
             onSubmit={(values, actions) => {
                 dispatch(logIn(values));
                 actions.resetForm();
-                navigate();
+                navigate('/');
             }}>
                 {({ isValid, dirty, errors, touched }) => (
                     <Form autoComplete="off" className={css.logInForm}>
