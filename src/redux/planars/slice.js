@@ -4,7 +4,7 @@ import { getPlanars, getPlanar } from "./operations";
 const planarsSlice = createSlice({
     name: "planars",
     initialState: {
-        data: null,
+        data: [],
         loading: false,
         error: false,
     },

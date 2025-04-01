@@ -39,7 +39,7 @@ export default function CharactersPage() {
             </Helmet>
             {loading && <Loading />}
             {error && <Error />}
-            {!loading && data && (
+            {!loading && data?.length > 0 && (
                 <>
                     <ConesFilter />
                     <ConesList location={location} />
