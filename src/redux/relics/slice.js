@@ -4,7 +4,7 @@ import { getRelics, getRelic } from "./operations";
 const relicsSlice = createSlice({
     name: "relics",
     initialState: {
-        data: null,
+        data: [],
         loading: false,
         error: false,
     },

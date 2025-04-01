@@ -15,12 +15,12 @@ const updateFilter = (state, action, filterType) => {
 const characterSlice = createSlice({
     name: "characters",
     initialState: {
-        characters: null,
+        characters: [],
         character: null,
         filter: {
-            rarity: null,
-            path: null,
-            type: null,
+            rarity: [],
+            path: [],
+            type: [],
         },
         loading: false,
         error: false,
@@ -35,9 +35,9 @@ const characterSlice = createSlice({
         },
         clearFilter(state) {
             state.filter = {
-                rarity: null,
-                path: null,
-                type: null,
+                rarity: [],
+                path: [],
+                type: [],
             };
         },
     },

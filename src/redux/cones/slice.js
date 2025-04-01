@@ -15,10 +15,10 @@ const updateFilter = (state, action, filterType) => {
 const conesSlice = createSlice({
     name: "cones",
     initialState: {
-        data: null,
+        data: [],
         filter: {
-            rarity: null,
-            path: null,
+            rarity: [],
+            path: [],
         },
         loading: false,
         error: false,
@@ -30,8 +30,8 @@ const conesSlice = createSlice({
         },
         clearFilter(state) {
             state.filter = {
-                rarity: null,
-                path: null,
+                rarity: [],
+                path: [],
             };
         },
     },

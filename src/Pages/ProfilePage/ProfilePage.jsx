@@ -8,7 +8,6 @@ import {
     isUserLogged,
     userLoading,
 } from "../../redux/user/selectors";
-import { getCones } from "../../redux/cones/operations";
 import { setCharacter } from "../../redux/characters/slice";
 import { Loading } from "../../Components/Loading/Loading";
 import { clearModals } from "../../redux/modals/slice";
@@ -24,7 +23,6 @@ export default function ProfilePage() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCones());
         dispatch(setCharacter());
         dispatch(clearModals());
     }, []);
@@ -33,7 +31,7 @@ export default function ProfilePage() {
         <>
             {loading && <Loading />}
             {!logged && <NotLoggedPage />}
-            {!loading && data && (
+            {!loading && Object.keys(data).length > 0 && (
                 <>
                     <Helmet>
                         <title>{data.nickname}</title>
