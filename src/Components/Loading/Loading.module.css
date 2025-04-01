@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - 82px);
 }
 
 .bouncingDots {
@@ -14,7 +14,7 @@
 .dot {
     width: 15px;
     height: 15px;
-    background-color: #FF5C35;
+    background-color: #ff5c35;
     border-radius: 50%;
     animation: bounce 1.5s infinite;
 }
@@ -32,7 +32,8 @@
 }
 
 @keyframes bounce {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {

@@ -3,10 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 
 import { getCharacter } from "../../redux/characters/operations";
-import { charactersOne, charactersError, charactersLoading } from "../../redux/characters/selectors";
+import {
+    charactersOne,
+    charactersError,
+    charactersLoading,
+} from "../../redux/characters/selectors";
 import { Loading } from "../../Components/Loading/Loading";
 import { Error } from "../../Components/Error/Error";
-import css from "./CharacterPage.module.css"
+import css from "./CharacterPage.module.css";
 import { Helmet } from "react-helmet-async";
 
 export default function CharacterPage() {
@@ -54,75 +58,127 @@ export default function CharacterPage() {
         sphere: "https://i.imgur.com/Z06ahIH.png",
         boots: "https://i.imgur.com/3NNG9Sk.png",
         rope: "https://i.imgur.com/cFwVwVu.png",
-      };
+    };
 
-    return (    
+    return (
         <>
-            <Helmet>
-                <title>{data.name}</title>
-                <link rel='icon' href='https://i.imgur.com/gEu9C46.png'/>
-            </Helmet>
             {loading && <Loading />}
             {error && <Error />}
-            <NavLink to={goBack.current} className={css.goBackBtn}>&larr; <span>Back</span></NavLink>
-            {data && (<>
-            <section className={css.characterMainSection}>
-                <div className={css.phonesCharacterName}>
-                    <p>{data.name}</p>
-                    <img src={data.img[2]} />
-                </div>
-                <ul className={css.conesList}>
-                    {data.cones.map(cone => (
-                        <li key={cone.id}>
-                            <p>{cone.name}</p>
-                            <img className={css.coneImage} src={cone.img[1]} alt={cone.name} />
-                        </li>
-                    ))}
-                </ul>
-                <img src={data.img[0]} className={css.mainImage} alt={data.name} />
-                <div className={css.statsContainerForDesctop}>
-                    <ul className={css.statsList}>
-                        {Object.keys(data.stats).map((key, index) => (
-                            <li key={key} className={index < 2 ? css.firstTwoStats : css.lastTwoStats}>
-                                <img src={statsIcons[key]} alt={key} />
-                                <p>{data.stats[key]}</p>
-                            </li>
-                        ))}
-                    </ul>
-                    <span>Доп. статы: {data.addStats}</span>
-                </div>
-                <ul className={`${css.relicsList} ${getRelicsClass(data.relics.length, data.planars.length)}`}>
-                    {data.relics.map(relic => (
-                        <li key={relic.id}>
-                            <img className={css.relicImage} src={relic.img} alt={relic.name} />
-                            <p>{relic.name}</p>
-                        </li>
-                    ))}
-                </ul>
-                <ul className={`${css.planarsList} ${getPlanarsClass(data.relics.length, data.planars.length)}`}>
-                    {data.planars.map(planar => (
-                        <li key={planar.id}>
-                            <img className={css.planarImage} src={planar.img} alt={planar.name} />
-                            <p>{planar.name}</p>
-                        </li>
-                    ))}
-                </ul>
-                <div className={css.statsContainerForPhone}>
-                    <ul className={css.statsList}>
-                        {Object.keys(data.stats).map((key, index) => (
-                            <li key={key} className={index < 2 ? css.firstTwoStats : css.lastTwoStats}>
-                                <img src={statsIcons[key]} alt={key} />
-                                <p>{data.stats[key]}</p>
-                            </li>
-                        ))}
-                    </ul>
-                    <span>Доп. статы: {data.addStats}</span>
-                </div>
-            </section>
-            <section className={css.characterAddSection}>
-                <p>{data.additionally}</p>
-            </section>
-        </>)}
-    </>
+            <NavLink to={goBack.current} className={css.goBackBtn}>
+                &larr; <span>Back</span>
+            </NavLink>
+            {!loading && data && (
+                <>
+                    <Helmet>
+                        <title>{data.name}</title>
+                        <link
+                            rel="icon"
+                            href="https://i.imgur.com/gEu9C46.png"
+                        />
+                    </Helmet>
+                    <section className={css.characterMainSection}>
+                        <div className={css.phonesCharacterName}>
+                            <p>{data.name}</p>
+                            <img src={data.img[2]} />
+                        </div>
+                        <b className={css.conesText}>Лучшие конусы</b>
+                        <ul className={css.conesList}>
+                            {data.cones.map((cone) => (
+                                <li key={cone.id}>
+                                    <p>{cone.name}</p>
+                                    <img
+                                        className={css.coneImage}
+                                        src={cone.img[1]}
+                                        alt={cone.name}
+                                    />
+                                </li>
+                            ))}
+                        </ul>
+                        <img
+                            src={data.img[0]}
+                            className={css.mainImage}
+                            alt={data.name}
+                        />
+                        <div className={css.statsContainerForDesctop}>
+                            <ul className={css.statsList}>
+                                {Object.keys(data.stats).map((key, index) => (
+                                    <li
+                                        key={key}
+                                        className={
+                                            index < 2
+                                                ? css.firstTwoStats
+                                                : css.lastTwoStats
+                                        }
+                                    >
+                                        <img src={statsIcons[key]} alt={key} />
+                                        <p>{data.stats[key]}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                            <span>Доп. статы: {data.addStats}</span>
+                        </div>
+                        <b className={css.conesText}>Лучшие реликвии</b>
+                        <ul
+                            className={`${css.relicsList} ${getRelicsClass(
+                                data.relics.length,
+                                data.planars.length
+                            )}`}
+                        >
+                            {data.relics.map((relic) => (
+                                <li key={relic.id}>
+                                    <img
+                                        className={css.relicImage}
+                                        src={relic.img}
+                                        alt={relic.name}
+                                    />
+                                    <p>{relic.name}</p>
+                                </li>
+                            ))}
+                        </ul>
+                        <b className={css.conesText}>
+                            Лучшие планарные украшения
+                        </b>
+                        <ul
+                            className={`${css.planarsList} ${getPlanarsClass(
+                                data.relics.length,
+                                data.planars.length
+                            )}`}
+                        >
+                            {data.planars.map((planar) => (
+                                <li key={planar.id}>
+                                    <img
+                                        className={css.planarImage}
+                                        src={planar.img}
+                                        alt={planar.name}
+                                    />
+                                    <p>{planar.name}</p>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className={css.statsContainerForPhone}>
+                            <ul className={css.statsList}>
+                                {Object.keys(data.stats).map((key, index) => (
+                                    <li
+                                        key={key}
+                                        className={
+                                            index < 2
+                                                ? css.firstTwoStats
+                                                : css.lastTwoStats
+                                        }
+                                    >
+                                        <img src={statsIcons[key]} alt={key} />
+                                        <p>{data.stats[key]}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                            <span>Доп. статы: {data.addStats}</span>
+                        </div>
+                    </section>
+                    <section className={css.characterAddSection}>
+                        <p>{data.additionally}</p>
+                    </section>
+                </>
+            )}
+        </>
     );
 }

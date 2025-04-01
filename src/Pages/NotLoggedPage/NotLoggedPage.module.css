@@ -1,0 +1,7 @@
+.goBackBtn {
+    position: absolute;
+    left: 10px;
+    color: gray;
+    cursor: pointer;
+    z-index: 10;
+}

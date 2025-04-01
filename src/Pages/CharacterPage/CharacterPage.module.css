@@ -79,6 +79,7 @@
     grid-template-columns: repeat(2, 1fr);
     row-gap: 5px;
     column-gap: 15px;
+    margin-bottom: 16px;
 }
 
 .statsList li:nth-child(1) {
@@ -161,6 +162,7 @@
 @media only screen and (min-width: 768px) {
     .mainImage {
         display: inline;
+        opacity: 0.5;
         position: absolute;
         top: 0;
         left: 50%;
@@ -182,6 +184,10 @@
         display: none;
     }
 
+    .conesText {
+        display: none;
+    }
+
     .conesList {
         display: flex;
         position: absolute;
@@ -193,6 +199,7 @@
     .mainImage {
         position: static;
         transform: none;
+        opacity: 1;
         width: 800px;
         height: 800px;
     }

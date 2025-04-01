@@ -5,7 +5,11 @@ import { useLocation } from "react-router-dom";
 
 import { CharacterFilter } from "../../Components/CharacterFilter/CharacterFilter";
 import { CharactersList } from "../../Components/CharactersList/CharactersList";
-import { charactersAll, charactersError, charactersLoading } from "../../redux/characters/selectors";
+import {
+    charactersAll,
+    charactersError,
+    charactersLoading,
+} from "../../redux/characters/selectors";
 import { setCharacter } from "../../redux/characters/slice";
 import { getCharacters } from "../../redux/characters/operations";
 import { Loading } from "../../Components/Loading/Loading";
@@ -31,16 +35,16 @@ export default function CharactersPage() {
         <>
             <Helmet>
                 <title>Персонажи</title>
-                <link rel='icon' href='https://i.imgur.com/gEu9C46.png'/>
+                <link rel="icon" href="https://i.imgur.com/gEu9C46.png" />
             </Helmet>
             {loading && <Loading />}
             {error && <Error />}
-            {data && (
+            {!loading && data && (
                 <>
                     <CharacterFilter />
                     <CharactersList location={location} />
                 </>
             )}
         </>
-    )
+    );
 }

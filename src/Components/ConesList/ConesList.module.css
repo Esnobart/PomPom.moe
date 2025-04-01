@@ -24,7 +24,8 @@
     box-sizing: border-box;
 }
 
-.coneImage, .backgroundImage {
+.coneImage,
+.backgroundImage {
     position: absolute;
     top: 0;
     left: 0;
@@ -58,19 +59,29 @@
     width: calc(100% - 179px);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
 }
 
 .conesStats {
     display: flex;
+    flex-direction: column;
     width: fit-content;
-    gap: 4px;
+    gap: 12px;
 }
 
 .conesStats li {
+    width: 100%;
     border-bottom: 1px white solid;
     width: fit-content;
     text-wrap: nowrap;
+}
+
+.conePassiveContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    width: 600px;
 }
 
 .forWho {
@@ -115,14 +126,14 @@
 
 @media only screen and (min-width: 1024px) {
     .conesList li {
-        width: calc((100% - 2 * 16px) / 3);
+        width: 100%;
     }
     .conesStats li {
         width: fit-content;
         gap: 6px;
     }
     .conesInfo {
-        width: calc((100% - 5px) / 2);
+        width: 16%;
     }
     .coneImage,
     .backgroundImage {
@@ -130,8 +141,16 @@
         height: 100%;
     }
     .imageContainer {
-        width: calc((100% - 5px) / 2);
+        width: 25%;
         height: fit-content;
-        aspect-ratio: 29 / 34;
+        aspect-ratio: 348 / 408;
+        max-width: 348px;
+        max-height: 408px;
+    }
+    .conePassiveContainer {
+        width: 40%;
+    }
+    .forWho {
+        width: 18%;
     }
 }
